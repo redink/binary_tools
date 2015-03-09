@@ -1,0 +1,5 @@
+{application, binary_tools, [
+       {description, "."},
+       {vsn, "0.0.1"},
+       {applications, [kernel, stdlib]}
+   ]}.
