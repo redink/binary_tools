@@ -15,10 +15,12 @@ static ErlNifFunc nif_funcs[] =
 static ERL_NIF_TERM get_bin_address(ErlNifEnv* env, int argc,
                                           const ERL_NIF_TERM argv[])
 {
-    ErlNifBinary bin;
-    enif_inspect_binary(env, argv[0], &bin);
+    ErlNifFunc func;
+    // enif_inspect_binary(env, argv[0], &func);
     char buf[256];
-    sprintf(buf, "bin: size=%zu, ptr=%p", bin.size, bin.data);
+    sprintf(buf, "func: name=%p, fptr=%p", func.name, func.fptr);
+    // sprintf(buf, "func: name=%p, arity=%d, fptr=%p, flags=%d", func.name, func.arity, func.fptr, func.flags);
+//    sprintf(buf, "bin: size=%zu, ptr=%p", bin.size, bin.data);
     return enif_make_string(env, buf, ERL_NIF_LATIN1);
 }
 
